@@ -27,7 +27,7 @@ const DHCStatistic = ({
   }, []);
   const { data, isPending, isError } = useApiQuery("device_statistic", {
     queryParams: {
-      providerID,
+      providerId: providerID,
       ...queryParams,
     },
   });
