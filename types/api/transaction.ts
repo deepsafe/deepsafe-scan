@@ -1,18 +1,32 @@
-import type { AddressParam } from './addressParams';
-import type { BlockTransactionsResponse } from './block';
-import type { DecodedInput } from './decodedInput';
-import type { Fee } from './fee';
-import type { L2WithdrawalStatus } from './l2Withdrawals';
-import type { TokenInfo } from './token';
-import type { TokenTransfer } from './tokenTransfer';
-import type { TxAction } from './txAction';
+import type { AddressParam } from "./addressParams";
+import type { BlockTransactionsResponse } from "./block";
+import type { DecodedInput } from "./decodedInput";
+import type { Fee } from "./fee";
+import type { L2WithdrawalStatus } from "./l2Withdrawals";
+import type { TokenInfo } from "./token";
+import type { TokenTransfer } from "./tokenTransfer";
+import type { TxAction } from "./txAction";
 
-export type TransactionRevertReason = {
-  raw: string;
-} | DecodedInput;
+export type TransactionRevertReason =
+  | {
+    raw: string;
+  }
+  | DecodedInput;
 
-type WrappedTransactionFields = 'decoded_input' | 'fee' | 'gas_limit' | 'gas_price' | 'hash' | 'max_fee_per_gas' |
-'max_priority_fee_per_gas' | 'method' | 'nonce' | 'raw_input' | 'to' | 'type' | 'value';
+type WrappedTransactionFields =
+  | "decoded_input"
+  | "fee"
+  | "gas_limit"
+  | "gas_price"
+  | "hash"
+  | "max_fee_per_gas"
+  | "max_priority_fee_per_gas"
+  | "method"
+  | "nonce"
+  | "raw_input"
+  | "to"
+  | "type"
+  | "value";
 
 export interface OpWithdrawal {
   l1_transaction_hash: string;
@@ -26,7 +40,7 @@ export type Transaction = {
   hash: string;
   result: string;
   confirmations: number;
-  status: 'ok' | 'error' | null | undefined;
+  status: "ok" | "error" | null | undefined;
   block: number | null;
   timestamp: string | null;
   confirmation_duration: Array<number> | null;
@@ -77,13 +91,15 @@ export type Transaction = {
   // zkEvm fields
   zkevm_verify_hash?: string;
   zkevm_batch_number?: number;
-  zkevm_status?: typeof ZKEVM_L2_TX_STATUSES[number];
+  zkevm_status?: (typeof ZKEVM_L2_TX_STATUSES)[number];
   zkevm_sequence_hash?: string;
-}
+};
 
-export const ZKEVM_L2_TX_STATUSES = [ 'Confirmed by Sequencer', 'L1 Confirmed' ];
+export const ZKEVM_L2_TX_STATUSES = [ "Confirmed by Sequencer", "L1 Confirmed" ];
 
-export type TransactionsResponse = TransactionsResponseValidated | TransactionsResponsePending;
+export type TransactionsResponse =
+  | TransactionsResponseValidated
+  | TransactionsResponsePending;
 
 export interface TransactionsResponseValidated {
   items: Array<Transaction>;
@@ -91,7 +107,7 @@ export interface TransactionsResponseValidated {
     block_number: number;
     index: number;
     items_count: number;
-    filter: 'validated';
+    filter: "validated";
   } | null;
 }
 
@@ -100,7 +116,7 @@ export interface TransactionsResponsePending {
   next_page_params: {
     inserted_at: string;
     hash: string;
-    filter: 'pending';
+    filter: "pending";
   } | null;
 }
 
@@ -113,21 +129,45 @@ export interface TransactionsResponseWatchlist {
   } | null;
 }
 
-export type TransactionType = 'rootstock_remasc' |
-'rootstock_bridge' |
-'token_transfer' |
-'contract_creation' |
-'contract_call' |
-'token_creation' |
-'coin_transfer'
+export type TransactionType =
+  | "rootstock_remasc"
+  | "rootstock_bridge"
+  | "token_transfer"
+  | "contract_creation"
+  | "contract_call"
+  | "token_creation"
+  | "coin_transfer"
+  | "100"
+  | "101"
+  | "102"
+  | "103"
+  | "104"
+  | "105"
+  | "106"
+  | "107"
+  | "108"
+  | "109"
+  | "110"
+  | "110"
+  | "111"
+  | "112"
+  | "113"
+  | "114"
+  | "115"
+  | "116"
+  | "117" | '118';
 
-export type TxsResponse = TransactionsResponseValidated | TransactionsResponsePending | BlockTransactionsResponse;
+export type TxsResponse =
+  | TransactionsResponseValidated
+  | TransactionsResponsePending
+  | BlockTransactionsResponse;
 
 export interface TransactionsSorting {
-  sort: 'value' | 'fee';
-  order: 'asc' | 'desc';
+  sort: "value" | "fee";
+  order: "asc" | "desc";
 }
 
-export type TransactionsSortingField = TransactionsSorting['sort'];
+export type TransactionsSortingField = TransactionsSorting["sort"];
 
-export type TransactionsSortingValue = `${ TransactionsSortingField }-${ TransactionsSorting['order'] }`;
+export type TransactionsSortingValue =
+  `${ TransactionsSortingField }-${ TransactionsSorting["order"] }`;
