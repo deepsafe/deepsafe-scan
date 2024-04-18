@@ -64,7 +64,7 @@ const TxType = ({ types, isLoading }: Props) => {
       colorScheme = "orange";
       break;
     case "coin_transfer":
-      label = "Coin transfer";
+      label = "Transfer";
       colorScheme = "orange";
       break;
     case "rootstock_remasc":
@@ -78,7 +78,7 @@ const TxType = ({ types, isLoading }: Props) => {
     case "100":
     case "101":
     case "110":
-      label = "Claim Rewards";
+      label = "Claim";
       colorScheme = "orange";
       break;
     case "102":
@@ -86,12 +86,12 @@ const TxType = ({ types, isLoading }: Props) => {
     case "112":
     case "113":
     case "114":
-      label = "Set Stake";
+      label = "Stake";
       colorScheme = "orange";
       break;
     case "103":
     case "115":
-      label = "Set Unstake";
+      label = "Unstake";
       colorScheme = "orange";
       break;
     case "105":
@@ -101,7 +101,7 @@ const TxType = ({ types, isLoading }: Props) => {
     case "109":
     case "116":
     case "117":
-      label = "Config Node";
+      label = "Config";
       colorScheme = "orange";
       break;
     case "104":
