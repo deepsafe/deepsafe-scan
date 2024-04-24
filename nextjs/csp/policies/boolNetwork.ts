@@ -5,8 +5,7 @@ export function boolNetwork(): CspDev.DirectiveDescriptor {
 
   return {
     'connect-src': [
-      'dev-api.boolscan.com',
-      'alpha-api.boolscan.com',
+      '*.boolscan.com',
       'https://dev-rpc-node-http.bool.network/',
     ],
   };
