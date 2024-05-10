@@ -92,12 +92,16 @@ export default function useNavItems(): ReturnType {
       } :
       null;
 
-    const validators: NavItem = {
-      text: "Validators",
-      nextRoute: { pathname: "/validators" as const },
-      icon: "bool/nodes",
-      isActive: pathname.startsWith("/validators"),
-    };
+    const validators: NavItem | undefined = config.app.hideNevs.includes(
+      "/validators",
+    ) ?
+      undefined :
+      {
+        text: "Validators",
+        nextRoute: { pathname: "/validators" as const },
+        icon: "bool/nodes",
+        isActive: pathname.startsWith("/validators"),
+      }; // beta testnet 中不显示
 
     if (config.features.zkEvmRollup.isEnabled) {
       blockchainNavItems = [
@@ -241,12 +245,14 @@ export default function useNavItems(): ReturnType {
         ),
         subItems: apiNavItems,
       },
-      {
-        text: "DHCs",
-        nextRoute: { pathname: "/dhcs" as const },
-        icon: "bool/provider",
-        isActive: pathname.startsWith("/dhcs"),
-      },
+      config.app.hideNevs.includes("/dhcs") ?
+        undefined :
+        {
+          text: "DHCs",
+          nextRoute: { pathname: "/dhcs" as const },
+          icon: "bool/provider",
+          isActive: pathname.startsWith("/dhcs"),
+        }, // beta testnet 中不显示
       {
         text: "Ecosystem",
         icon: "ecosystem",
