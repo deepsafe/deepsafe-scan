@@ -391,6 +391,8 @@ const schema = yup
     NEXT_PUBLIC_NETWORK_LOGO_DARK: yup.string().test(urlTest),
     NEXT_PUBLIC_NETWORK_ICON: yup.string().test(urlTest),
     NEXT_PUBLIC_NETWORK_ICON_DARK: yup.string().test(urlTest),
+    NEXT_PUBLIC_HIDE_ENVS: yup.string(),
+
 
     //     c. footer
     NEXT_PUBLIC_FOOTER_LINKS: yup

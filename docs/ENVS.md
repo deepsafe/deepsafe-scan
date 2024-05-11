@@ -126,6 +126,8 @@ Please be aware that all environment variables prefixed with `NEXT_PUBLIC_` will
 | NEXT_PUBLIC_OTHER_LINKS | `Array<{url: string; text: string}>` | List of links for the "Other" navigation menu | - | - | `[{'url':'https://blockscout.com','text':'Blockscout'}]` |
 | NEXT_PUBLIC_NAVIGATION_HIDDEN_LINKS | `Array<LinkId>` | List of external links hidden in the navigation. Supported ids are `eth_rpc_api`, `rpc_api` | - | - | `['eth_rpc_api']` |
 
+|NEXT_PUBLIC_HIDE_ENVS| `Array<strubg>` |hide menus| - | - | `['/validators', '/dhcs']` |
+
 #### Featured network configuration properties
 
 | Variable | Type| Description | Compulsoriness  | Default value | Example value |
