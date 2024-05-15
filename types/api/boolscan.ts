@@ -143,4 +143,38 @@ export type DHCStatus =
   | "Started"
   | "Join"
   | "Stopped"
-  | "Offline";
+  | "Offline"
+  | "STANDBY"
+  | "SERVING"
+  | "EXITING";
+
+export interface DHCDevicesParams extends PageParams {
+  ownerAddress?: string; // 拥有人地址
+  status?: string; // 设备状态
+}
+
+export interface DHCDevice {
+  deviceId: string;
+  deviceVersion: string;
+  createTime: string;
+  status: "STANDBY" | "SERVING" | "EXITING";
+  income: string;
+  punish: string;
+  punishCount: string;
+  lastHeartBeat: string;
+  totalStake: string;
+  isAllowedStake: string;
+  feeRatio: number;
+}
+
+export type DHCDevicePage = PageData<DHCDevice>;
+
+export interface DHCDeviceInfoParams {
+  ownerAddress: string;
+}
+export interface DHCDeviceInfo {
+  totalStake: string;
+  totalReward: string;
+  totalPunish: string;
+  totalDevices: string;
+}

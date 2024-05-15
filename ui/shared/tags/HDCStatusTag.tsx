@@ -10,6 +10,9 @@ const statusObj: { [key: string]: string } = {
   Join: "Service",
   Stopped: "Stop",
   Offline: "Offline",
+  STANDBY: "STANDBY",
+  SERVING: "SERVING",
+  EXITING: "EXITING",
 };
 
 const DHCStatusTag = ({ status }: { status?: DHCStatus | null }) => {
@@ -38,6 +41,18 @@ const DHCStatusTag = ({ status }: { status?: DHCStatus | null }) => {
       background: "rgba(255, 120, 117, 0.18)",
       color: "#ff4d4f",
     },
+    STANDBY: {
+      background: "rgba(255, 229, 143, 0.4)",
+      color: "#faad14",
+    },
+    SERVING: {
+      background: "rgba(117, 255, 177, 0.18)",
+      color: "#52c41a",
+    },
+    EXITING: {
+      background: "rgba(154, 154, 154, 0.18)",
+      color: "#595959",
+    },
   };
 
   return (
@@ -50,10 +65,10 @@ const DHCStatusTag = ({ status }: { status?: DHCStatus | null }) => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        bgColor={ statusColors[status || "UnMount"].background }
+        bgColor={ statusColors?.[status || "UnMount"]?.background }
       >
-        <TagLabel color={ statusColors[status || "UnMount"].color }>
-          { statusObj[status || "UnMount"] }
+        <TagLabel color={ statusColors?.[status || "UnMount"]?.color }>
+          { statusObj[status ?? ''] ?? status }
         </TagLabel>
       </Tag>
     </>
