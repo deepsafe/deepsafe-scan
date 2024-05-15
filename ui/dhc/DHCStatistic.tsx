@@ -9,15 +9,17 @@ import { currencyUnits } from "lib/units";
 import ChartWidget from "ui/shared/chart/ChartWidget";
 
 const DHCStatistic = ({
-  providerID,
+  deviceId,
   totalReward,
   totalPunish,
   isLoaded,
+  punishCount,
 }: {
-  providerID: string;
+  deviceId: string;
   totalReward: string;
   totalPunish: string;
   isLoaded: boolean;
+  punishCount: number;
 }) => {
   const queryParams = React.useMemo(() => {
     return {
@@ -27,7 +29,7 @@ const DHCStatistic = ({
   }, []);
   const { data, isPending, isError } = useApiQuery("device_statistic", {
     queryParams: {
-      providerId: providerID,
+      deviceId: deviceId,
       ...queryParams,
     },
   });
@@ -93,7 +95,7 @@ const DHCStatistic = ({
         title="Punish"
         isLoading={ isPending || !isLoaded }
         isError={ isError }
-        description={ `Total: ${ totalPunish } ${ currencyUnits.ether }` }
+        description={ `Count: ${ punishCount }, Total: ${ totalPunish } ${ currencyUnits.ether } ` }
         minH="230px"
       />
     </Grid>

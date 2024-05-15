@@ -40,6 +40,10 @@ import type {
 } from "types/api/block";
 import type {
   DeviceStatisticInfos,
+  DHCDevice,
+  DHCDeviceInfo,
+  DHCDevicePage,
+  DHCDevicesParams,
   EpochInfo,
   EraInfo,
   NodesPage,
@@ -699,61 +703,84 @@ export const RESOURCES = {
   // bool provider
   provider_stats: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/blockchain/provider" + encodeURIComponent(":info"),
   },
   providers: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/blockchain/providers",
   },
   nodes: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/node/validators",
     filterFields: [ "validatorStatus" as const, "searchStr" as const ],
   },
   epoch_info: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/node/epoch-info",
   },
   era_info: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/node/era-info",
   },
   device_statistic: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/blockchain/device" + encodeURIComponent(":statistic"),
     filterFields: [
-      "providerId" as const,
+      "deviceId" as const,
       "startTime" as const,
       "endTime" as const,
     ],
   },
   provider_details: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/blockchain/provider-detail",
     filterFields: [ "providerId" as const ],
   },
   validator_details: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/node/validator-detail",
     filterFields: [ "address" as const ],
   },
   validator_statistic: {
     baseUrl: config.api.boolApi ?? "",
-    basePath: "/bool-network",
+    basePath: "/bool-network-beta",
     path: "/node/validator-statistic",
     filterFields: [
       "address" as const,
       "startTime" as const,
       "endTime" as const,
     ],
+  },
+  dhc_devices: {
+    baseUrl: config.api.boolApi ?? "",
+    basePath: "/bool-network-beta",
+    path: "/blockchain/device" + encodeURIComponent(":owner"),
+    filterFields: [
+      "pageNo" as const,
+      "pageSize" as const,
+      "status" as const,
+      "ownerAddress" as const,
+    ],
+  },
+  dhc_devices_info: {
+    baseUrl: config.api.boolApi ?? "",
+    basePath: "/bool-network-beta",
+    path: "/blockchain/device" + encodeURIComponent(":info"),
+    filterFields: [ "ownerAddress" as const ],
+  },
+  dhc_device: {
+    baseUrl: config.api.boolApi ?? "",
+    basePath: "/bool-network-beta",
+    path: "/blockchain/device",
+    filterFields: [ "deviceId" as const ],
   },
   bool_rpc: {
     baseUrl: config.chain.rpcUrl ?? "",
@@ -772,6 +799,9 @@ export const boolApiNames: Array<ResourceName> = [
   "provider_details",
   "validator_details",
   "validator_statistic",
+  "dhc_devices",
+  "dhc_devices_info",
+  "dhc_device",
 ];
 
 export type ResourceName = keyof typeof RESOURCES;
@@ -806,7 +836,7 @@ export interface ResourceError<T = unknown> {
 
 export type ResourceErrorAccount<T> = ResourceError<{ errors: T }>;
 
-export type PaginatedResourcesOfBool = "providers" | "nodes";
+export type PaginatedResourcesOfBool = "providers" | "nodes" | "dhc_devices";
 export type PaginatedResources =
   | "blocks"
   | "block_txs"
@@ -875,7 +905,13 @@ export type ResourcePayloadOfBool<Q extends ResourceName> =
                   ? Array<ValidatorStatisticInfos>
                   : Q extends "validator_details"
                     ? ValidatorDetails
-                    : never;
+                    : Q extends "dhc_devices"
+                      ? DHCDevicePage
+                      : Q extends "dhc_devices_info"
+                        ? DHCDeviceInfo
+                        : Q extends "dhc_device"
+                          ? DHCDevice
+                          : never;
 
 type ResourcePayload2<Q extends ResourceName> = Q extends "user_info"
   ? UserInfo
@@ -1127,6 +1163,10 @@ export type PaginationFilters<
   ? PageParams
   : Q extends "nodes"
   ? NodesParams
+  : Q extends "dhc_devices"
+  ? DHCDevicesParams
+  : Q extends "dhc_devices_info"
+  ? DHCDevicesParams
   : never;
 /* eslint-enable @typescript-eslint/indent */
 
@@ -1149,5 +1189,7 @@ export type PaginationSorting<
   ? ProvidersPage
   : Q extends "nodes"
   ? NodesPage
+  : Q extends "dhc_devices"
+  ? DHCDevicePage
   : never;
 /* eslint-enable @typescript-eslint/indent */

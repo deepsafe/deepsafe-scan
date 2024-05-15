@@ -11,11 +11,11 @@ import PageTitle from "ui/shared/Page/PageTitle";
 const HDCContext: React.FC = ({}) => {
   const appProps = useAppContext();
   const router = useRouter();
-  const providerID = router.query.id;
+  const deviceId = router.query.id;
 
-  const { data, isLoading } = useApiQuery("provider_details", {
+  const { data, isLoading } = useApiQuery("dhc_device", {
     queryParams: {
-      providerId: providerID,
+      deviceId: deviceId,
     },
   });
 
@@ -35,18 +35,18 @@ const HDCContext: React.FC = ({}) => {
   return (
     <div style={{ width: "100%" }}>
       <PageTitle title="DHC details" withTextAd backLink={ backLink }/>
-      { providerID && (
+      { deviceId && (
         <DHCDetails
-          providerID={ providerID as string }
-          providerDetails={ data }
+          deviceDetails={ data }
           isLoading={ isLoading }
         />
       ) }
-      { providerID && (
+      { deviceId && (
         <DHCStatistic
-          providerID={ providerID as string }
-          totalPunish={ formatAmount(data?.totalPunish ?? "0") }
-          totalReward={ formatAmount(data?.totalReward ?? "0") }
+          deviceId={ deviceId as string }
+          totalPunish={ formatAmount(data?.punish ?? "0") }
+          totalReward={ formatAmount(data?.income ?? "0") }
+          punishCount={ Number(data?.punishCount ?? 0) }
           isLoaded={ true }
         />
       ) }

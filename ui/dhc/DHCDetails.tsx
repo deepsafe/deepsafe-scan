@@ -1,61 +1,90 @@
-import { Skeleton, Grid } from "@chakra-ui/react";
+import { Skeleton, Grid, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
-import type { ProviderDetails, ValidatorInfo } from "types/api/boolscan";
+import type {
+  DHCDevice,
 
-import useBoolRpcApi from "lib/api/useBoolRpcApi";
+} from "types/api/boolscan";
+
 import dayjs from "lib/date/dayjs";
 import { currencyUnits } from "lib/units";
 import { formatAmount } from "lib/utils/helpers";
+import CopyToClipboard from "ui/shared/CopyToClipboard";
 import DetailsInfoItem from "ui/shared/DetailsInfoItem";
+import HashStringShortenDynamic from "ui/shared/HashStringShortenDynamic";
+import DHCDeviceConnection from "ui/shared/tags/DHCDeviceConnection";
 import DHCStatusTag from "ui/shared/tags/HDCStatusTag";
 
 const DHCDetails = ({
-  providerID,
-  providerDetails,
+  deviceDetails,
   isLoading,
 }: {
-  providerID: string;
-  providerDetails?: ProviderDetails;
+  deviceDetails?: DHCDevice;
   isLoading: boolean;
 }) => {
-  const rpcRes = useBoolRpcApi("mining_getProviderInfo", {
-    queryParams: [ Number(providerID) ],
-  });
-
-  const validatorInfo = React.useMemo<ValidatorInfo | undefined>(() => {
-    return rpcRes.data;
-  }, [ rpcRes.data ]);
-
   const formData = React.useMemo(() => {
     return [
-      { id: "pid", label: "PID", value: providerID },
+      {
+        id: "device",
+        label: "Device",
+        value: (
+          <HashStringShortenDynamic hash={ deviceDetails?.deviceId ?? "" }/>
+        ),
+      },
+      {
+        id: "version",
+        label: "Version",
+        value: deviceDetails?.deviceVersion,
+      },
+      {
+        id: "allowVotes",
+        label: "Allow votes",
+        value: (
+          <Text
+            color={ deviceDetails?.isAllowedStake ? "green.300" : "red.300" }
+          >
+            { deviceDetails?.isAllowedStake ?
+              "Allow new votes" :
+              "Refuse new votes" }
+          </Text>
+        ),
+      },
+      {
+        id: "feetRate",
+        label: "Commission",
+        value: (deviceDetails?.feeRatio ?? 0) + "%",
+      },
       {
         id: "status",
         label: "Status",
-        value: <DHCStatusTag status={ providerDetails?.deviceState }/>,
+        value: (
+          <Flex alignItems="center">
+            <DHCStatusTag status={ deviceDetails?.status }/>
+
+            <DHCDeviceConnection
+              ml="10px"
+              time={ Number(deviceDetails?.lastHeartBeat ?? 0) }
+            />
+          </Flex>
+        ),
       },
       {
         id: "stake",
         label: "Stake",
-        value: `${ formatAmount(validatorInfo?.total_pledge ?? "0") } ${
+        value: `${ formatAmount(deviceDetails?.income ?? "0") } ${
           currencyUnits.ether
         }`,
       },
-      {
-        id: "device",
-        label: "Device",
-        value: providerDetails?.deviceId,
-      },
+
       {
         id: "createTime",
         label: "Create Time",
-        value: dayjs(Number(providerDetails?.chainTime ?? "0")).format(
+        value: dayjs(Number(deviceDetails?.createTime ?? "0")).format(
           "YYYY-MM-DD HH:mm",
         ),
       },
     ];
-  }, [ providerDetails, providerID, validatorInfo ]);
+  }, [ deviceDetails ]);
 
   return (
     <Grid
@@ -70,11 +99,22 @@ const DHCDetails = ({
             key={ item.id }
             title={ item.label }
             alignSelf="center"
-            isLoading={ item.id === "stake" ? rpcRes.isLoading : isLoading }
+            flexWrap="nowrap"
+            isLoading={ isLoading }
           >
-            <Skeleton isLoaded={ !isLoading } display="inline-block">
-              <span>{ item.value }</span>
+            <Skeleton
+              isLoaded={ !isLoading }
+              display="inline-block"
+              overflow="hidden"
+            >
+              { item.value }
             </Skeleton>
+            { item.id === "device" ? (
+              <CopyToClipboard
+                text={ deviceDetails?.deviceId ?? "" }
+                isLoading={ isLoading }
+              />
+            ) : null }
           </DetailsInfoItem>
         );
       }) }
