@@ -1,10 +1,7 @@
 import { Skeleton, Grid, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
-import type {
-  DHCDevice,
-
-} from "types/api/boolscan";
+import type { DHCDevice } from "types/api/boolscan";
 
 import dayjs from "lib/date/dayjs";
 import { currencyUnits } from "lib/units";
@@ -38,11 +35,9 @@ const DHCDetails = ({
       },
       {
         id: "allowVotes",
-        label: "Allow votes",
+        label: "Voting",
         value: (
-          <Text
-            color={ deviceDetails?.isAllowedStake ? "green.300" : "red.300" }
-          >
+          <Text color={ deviceDetails?.isAllowedStake ? "green.300" : "red.300" }>
             { deviceDetails?.isAllowedStake ?
               "Allow new votes" :
               "Refuse new votes" }
@@ -71,14 +66,14 @@ const DHCDetails = ({
       {
         id: "stake",
         label: "Stake",
-        value: `${ formatAmount(deviceDetails?.income ?? "0") } ${
+        value: `${ formatAmount(deviceDetails?.totalStake ?? "0") } ${
           currencyUnits.ether
         }`,
       },
 
       {
         id: "createTime",
-        label: "Create Time",
+        label: "Created",
         value: dayjs(Number(deviceDetails?.createTime ?? "0")).format(
           "YYYY-MM-DD HH:mm",
         ),

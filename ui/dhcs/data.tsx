@@ -33,7 +33,7 @@ export const tableColumns: Array<TableColumn<DHCDevice>> = [
   },
   {
     id: "createTime",
-    label: "Create Time",
+    label: "Created",
     width: "150px",
     textAlgin: "center",
     render: (data) => {
