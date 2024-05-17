@@ -42,10 +42,10 @@ const DHCStatistics = () => {
         value: statsData("totalDevices"),
       },
       {
-        id: "totalStake",
+        id: "totalCurrentStake",
         label: "Total Stake",
         icon: "bool/stake",
-        value: statsData("totalStake"),
+        value: statsData("totalCurrentStake"),
       },
       {
         id: "totalPunish",

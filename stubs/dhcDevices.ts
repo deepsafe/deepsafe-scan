@@ -15,7 +15,8 @@ export const DHC_DEVICES: DHCDevicePage["items"][0] = {
 };
 
 export const DHC_DEVICE_INFO: DHCDeviceInfo = {
-  totalStake: "",
+  totalCurrentStake: "",
+  totalNextStake: "",
   totalReward: "",
   totalPunish: "",
   totalDevices: "ut ea qui",
