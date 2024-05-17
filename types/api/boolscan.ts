@@ -173,7 +173,8 @@ export interface DHCDeviceInfoParams {
   ownerAddress: string;
 }
 export interface DHCDeviceInfo {
-  totalStake: string;
+  totalCurrentStake: string;
+  totalNextStake: string;
   totalReward: string;
   totalPunish: string;
   totalDevices: string;
