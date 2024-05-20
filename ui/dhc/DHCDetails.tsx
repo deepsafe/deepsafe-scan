@@ -34,6 +34,13 @@ const DHCDetails = ({
         value: deviceDetails?.deviceVersion,
       },
       {
+        id: "device",
+        label: "Device Owner",
+        value: (
+          <HashStringShortenDynamic hash={ deviceDetails?.deviceOwner ?? "" }/>
+        ),
+      },
+      {
         id: "allowVotes",
         label: "Voting",
         value: (
@@ -70,7 +77,13 @@ const DHCDetails = ({
           currencyUnits.ether
         }`,
       },
-
+      {
+        id: "nextTotalStake",
+        label: "Next Stake",
+        value: `${ formatAmount(deviceDetails?.nextTotalStake ?? "0") } ${
+          currencyUnits.ether
+        }`,
+      },
       {
         id: "createTime",
         label: "Created",
