@@ -165,6 +165,8 @@ export interface DHCDevice {
   totalStake: string;
   isAllowedStake: string;
   feeRatio: number;
+  nextTotalStake: string;
+  deviceOwner?: string;
 }
 
 export type DHCDevicePage = PageData<DHCDevice>;

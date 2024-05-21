@@ -12,6 +12,7 @@ export const DHC_DEVICES: DHCDevicePage["items"][0] = {
   totalStake: "ipsum dolor",
   isAllowedStake: "incididunt in",
   feeRatio: -90403242.41808553,
+  nextTotalStake: "",
 };
 
 export const DHC_DEVICE_INFO: DHCDeviceInfo = {

@@ -50,6 +50,15 @@ export const tableColumns: Array<TableColumn<DHCDevice>> = [
     },
   },
   {
+    id: "nextTotalStake",
+    label: `Next Stake ${ currencyUnits.ether }`,
+    width: "130px",
+    textAlgin: "right",
+    render: (data) => {
+      return formatAmount(data.nextTotalStake);
+    },
+  },
+  {
     id: "punish",
     label: `Punish ${ currencyUnits.ether }`,
     width: "130px",

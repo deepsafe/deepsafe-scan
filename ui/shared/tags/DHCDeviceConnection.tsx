@@ -24,7 +24,7 @@ const DHCDeviceConnection = ({ time, ...style }: Props) => {
 
   return (
     <Text color={ textColor() } fontSize="16px" fontWeight={ 500 } { ...style }>
-      { dayjs().from(dayjs(time)) }
+      { dayjs(time).from(dayjs()) }
     </Text>
   );
 };

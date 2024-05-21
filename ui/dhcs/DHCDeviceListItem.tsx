@@ -1,4 +1,4 @@
-import { Skeleton, HStack } from "@chakra-ui/react";
+import { Skeleton, HStack, Flex } from "@chakra-ui/react";
 import React from "react";
 
 import type { DHCDevicePage } from "types/api/boolscan";
@@ -7,6 +7,7 @@ import { route } from "nextjs-routes";
 
 import * as EntityBase from "ui/shared/entities/base/components";
 import ListItemMobile from "ui/shared/ListItemMobile/ListItemMobile";
+import DHCDeviceConnection from "ui/shared/tags/DHCDeviceConnection";
 import DHCStatusTag from "ui/shared/tags/HDCStatusTag";
 
 import { tableColumns } from "./data";
@@ -24,20 +25,27 @@ const DHCDeviceListItem = ({
         let content = col.render?.(data);
         if (i === 0) {
           content = (
-            <EntityBase.Link
-              href={ route({
-                pathname: "/dhcs/[id]",
-                query: { id: data.deviceId },
-              }) }
-            >
-              <EntityBase.Content
-                truncation="constant"
-                fontWeight={ 700 }
-                text={ data.deviceId }
-                maxW="100%"
-                isLoading={ !isLoaded }
+            <Flex>
+              <EntityBase.Link
+                href={ route({
+                  pathname: "/dhcs/[id]",
+                  query: { id: data.deviceId },
+                }) }
+              >
+                <EntityBase.Content
+                  truncation="constant"
+                  fontWeight={ 700 }
+                  text={ data.deviceId }
+                  maxW="100%"
+                  isLoading={ !isLoaded }
+                />
+              </EntityBase.Link>
+
+              <DHCDeviceConnection
+                ml="10px"
+                time={ Number(data.lastHeartBeat ?? 0) }
               />
-            </EntityBase.Link>
+            </Flex>
           );
         } else if (col.id === "deviceStatus") {
           content = <DHCStatusTag status={ data.status }/>;

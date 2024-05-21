@@ -6,6 +6,7 @@ import type { DHCDevicePage } from "types/api/boolscan";
 import { route } from "nextjs-routes";
 
 import * as EntityBase from "ui/shared/entities/base/components";
+import DHCDeviceConnection from "ui/shared/tags/DHCDeviceConnection";
 import DHCStatusTag from "ui/shared/tags/HDCStatusTag";
 
 import { tableColumns } from "./data";
@@ -24,22 +25,29 @@ const DHCDeviceTableItem = ({
 
         if (i === 0) {
           content = (
-            <EntityBase.Link
-              href={ route({
-                pathname: "/dhcs/[id]",
-                query: { id: data.deviceId },
-              }) }
-            >
-              { }
+            <>
+              <EntityBase.Link
+                href={ route({
+                  pathname: "/dhcs/[id]",
+                  query: { id: data.deviceId },
+                }) }
+              >
+                { }
 
-              <EntityBase.Content
-                truncation="constant"
-                fontWeight={ 700 }
-                text={ data.deviceId }
-                maxW="100%"
-                isLoading={ !isLoaded }
+                <EntityBase.Content
+                  truncation="constant"
+                  fontWeight={ 700 }
+                  text={ data.deviceId }
+                  maxW="100%"
+                  isLoading={ !isLoaded }
+                />
+              </EntityBase.Link>
+
+              <DHCDeviceConnection
+                ml="10px"
+                time={ Number(data.lastHeartBeat ?? 0) }
               />
-            </EntityBase.Link>
+            </>
           );
         } else if (col.id === "deviceStatus") {
           content = <DHCStatusTag status={ data.status }/>;
