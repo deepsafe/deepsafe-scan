@@ -36,6 +36,12 @@ const TYPES_ORDER = [
   "115",
   "116",
   "117",
+  "118",
+  "119",
+  "120",
+  "121",
+  "122",
+  "123",
 ];
 
 const TxType = ({ types, isLoading }: Props) => {
@@ -101,11 +107,16 @@ const TxType = ({ types, isLoading }: Props) => {
     case "109":
     case "116":
     case "117":
+    case "119":
+    case "120":
+    case "121":
+    case "122":
       label = "Config";
       colorScheme = "orange";
       break;
     case "104":
     case "118":
+    case "123":
       label = "Delegate";
       colorScheme = "orange";
       break;

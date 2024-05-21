@@ -155,7 +155,13 @@ export type TransactionType =
   | "114"
   | "115"
   | "116"
-  | "117" | '118';
+  | "117"
+  | "118"
+  | "119"
+  | "120"
+  | "121"
+  | "122"
+  | "123";
 
 export type TxsResponse =
   | TransactionsResponseValidated
