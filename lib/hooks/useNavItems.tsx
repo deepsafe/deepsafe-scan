@@ -231,7 +231,7 @@ export default function useNavItems(): ReturnType {
         null,
       config.features.stats.isEnabled ?
         {
-          text: "Charts & stats",
+          text: "Charts & Sats",
           nextRoute: { pathname: "/stats" as const },
           icon: "stats",
           isActive: pathname === "/stats",
@@ -272,7 +272,7 @@ export default function useNavItems(): ReturnType {
         ] as Array<NavItemExternal>,
       },
       {
-        text: "Other",
+        text: "Others",
         icon: "gear",
         subItems: [
           {

@@ -1,14 +1,26 @@
-import { Box } from '@chakra-ui/react';
-import React from 'react';
+import { Box } from "@chakra-ui/react";
+import React from "react";
 
-import type { InternalTransaction } from 'types/api/internalTransaction';
+import type { InternalTransaction } from "types/api/internalTransaction";
 
-import TxInternalsListItem from 'ui/tx/internals/TxInternalsListItem';
+import TxInternalsListItem from "ui/tx/internals/TxInternalsListItem";
 
-const TxInternalsList = ({ data, isLoading }: { data: Array<InternalTransaction>; isLoading?: boolean }) => {
+const TxInternalsList = ({
+  data,
+  isLoading,
+}: {
+  data: Array<InternalTransaction>;
+  isLoading?: boolean;
+}) => {
   return (
     <Box>
-      { data.map((item, index) => <TxInternalsListItem key={ item.transaction_hash + (isLoading ? index : '') } { ...item } isLoading={ isLoading }/>) }
+      { data.map((item, index) => (
+        <TxInternalsListItem
+          key={ item.transaction_hash + index }
+          { ...item }
+          isLoading={ isLoading }
+        />
+      )) }
     </Box>
   );
 };
