@@ -33,7 +33,7 @@ const Home = () => {
             fontWeight={ 600 }
             color={ textColor }
           >
-            { config.chain.name } explorer
+            { config.chain.name } Explorer
           </Heading>
           <Box display={{ base: 'none', lg: 'flex' }}>
             { config.features.account.isEnabled && <ProfileMenuDesktop isHomePage/> }
