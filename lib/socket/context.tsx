@@ -18,7 +18,8 @@ export function SocketProvider({ children, options, url }: SocketProviderProps) 
     if (!url) {
       return;
     }
-
+    // eslint-disable-next-line no-console
+    console.log(url);
     const socketInstance = new Socket(url, options);
     socketInstance.connect();
     setSocket(socketInstance);

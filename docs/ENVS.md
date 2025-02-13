@@ -112,6 +112,8 @@ Please be aware that all environment variables prefixed with `NEXT_PUBLIC_` will
 | NEXT_PUBLIC_HOMEPAGE_SHOW_GAS_TRACKER | `boolean` | Set to false if network doesn't have gas tracker | - | `true` | `false` |
 | NEXT_PUBLIC_HOMEPAGE_SHOW_AVG_BLOCK_TIME | `boolean` | Set to false if average block time is useless for the network | - | `true` | `false` |
 | NEXT_PUBLIC_HOMEPAGE_TX_ICON | `string` | Home Page Tx's Icoin | - | `` | `` |
+| NEXT_PUBLIC_ASSET_PREFIX | `string` | Static resource prefix | - | `` | `` |
+
 &nbsp;
 
 ### Sidebar

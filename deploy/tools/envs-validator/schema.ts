@@ -371,6 +371,7 @@ const schema = yup
     NEXT_PUBLIC_HOMEPAGE_SHOW_GAS_TRACKER: yup.boolean(),
     NEXT_PUBLIC_HOMEPAGE_SHOW_AVG_BLOCK_TIME: yup.boolean(),
     NEXT_PUBLIC_HOMEPAGE_TX_ICON: yup.string(),
+    NEXT_PUBLIC_ASSET_PREFIX: yup.string(),
 
     //     b. sidebar
     NEXT_PUBLIC_FEATURED_NETWORKS: yup

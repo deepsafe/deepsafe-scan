@@ -71,6 +71,7 @@ const UI = Object.freeze({
   ides: {
     items: parseEnvJson<Array<ContractCodeIde>>(getEnvValue('NEXT_PUBLIC_CONTRACT_CODE_IDES')) || [],
   },
+  envLocation:getEnvValue('NEXT_PUBLIC_ASSET_PREFIX')
 });
 
 export default UI;

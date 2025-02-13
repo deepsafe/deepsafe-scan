@@ -5,6 +5,7 @@ import React from 'react';
 
 import * as serverTiming from 'nextjs/utils/serverTiming';
 
+import config from "configs/app";
 import theme from 'theme';
 import * as svgSprite from 'ui/shared/IconSvg';
 
@@ -27,6 +28,7 @@ class MyDocument extends Document {
   }
 
   render() {
+    const assetPrefix = config.UI.envLocation || "";
     return (
       <Html lang="en">
         <Head>
@@ -41,7 +43,7 @@ class MyDocument extends Document {
           />
 
           { /* eslint-disable-next-line @next/next/no-sync-scripts */ }
-          <script src="/envs.js"/>
+          <script src={`${assetPrefix}/envs.js`} />
 
           { /* FAVICON */ }
           <link rel="icon" href="/favicon/favicon.ico" sizes="48x48"/>
