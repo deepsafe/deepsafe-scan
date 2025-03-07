@@ -56,7 +56,7 @@ import {
 import { replaceQuotes } from '../../../configs/app/utils';
 import * as regexp from '../../../lib/regexp';
 
-const protocols = [ 'http', 'https' ];
+const protocols = ['http', 'https'];
 
 const urlTest: yup.TestConfig = {
   name: 'url',
@@ -364,7 +364,7 @@ const bridgedTokensSchema = yup.object().shape({
 const schema = yup
   .object()
   .noUnknown(true, (params) => {
-    return `Unknown ENV variables were provided: ${ params.unknown }`;
+    return `Unknown ENV variables were provided: ${params.unknown}`;
   })
   .shape({
     // I. Build-time ENVs
@@ -391,7 +391,7 @@ const schema = yup
     NEXT_PUBLIC_NETWORK_GOVERNANCE_TOKEN_SYMBOL: yup.string(),
     NEXT_PUBLIC_NETWORK_VERIFICATION_TYPE: yup
       .string<NetworkVerificationType>()
-      .oneOf([ 'validation', 'mining' ]),
+      .oneOf(['validation', 'mining']),
     NEXT_PUBLIC_IS_TESTNET: yup.boolean(),
     NEXT_PUBLIC_IS_DEVNET: yup.boolean(),
     NEXT_PUBLIC_NETWORK_CURRENCY_IMAGE_URL: yup.string(),
@@ -400,7 +400,7 @@ const schema = yup
     NEXT_PUBLIC_API_HOST: yup.string().required(),
     NEXT_PUBLIC_API_PORT: yup.number().integer().positive(),
     NEXT_PUBLIC_API_BASE_PATH: yup.string(),
-    NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL: yup.string().oneOf([ 'ws', 'wss' ]),
+    NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL: yup.string().oneOf(['ws', 'wss']),
 
     // 4. UI configuration
     //   a. homepage
@@ -411,7 +411,7 @@ const schema = yup
       .of(
         yup
           .string<ChainIndicatorId>()
-          .oneOf([ 'daily_txs', 'coin_price', 'market_cap', 'tvl' ]),
+          .oneOf(['daily_txs', 'coin_price', 'market_cap', 'tvl']),
       ),
     NEXT_PUBLIC_HOMEPAGE_PLATE_TEXT_COLOR: yup.string(),
     NEXT_PUBLIC_HOMEPAGE_PLATE_BACKGROUND: yup.string(),
@@ -500,7 +500,7 @@ const schema = yup
         'shape',
         'Invalid schema were provided for NEXT_PUBLIC_WEB3_WALLETS, it should be either array or "none" string literal',
         (data) => {
-          const isNoneSchema = yup.string().equals([ 'none' ]);
+          const isNoneSchema = yup.string().equals(['none']);
           const isArrayOfWalletsSchema = yup
             .array()
             .transform(replaceQuotes)
