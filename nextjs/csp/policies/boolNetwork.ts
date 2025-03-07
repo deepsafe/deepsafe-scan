@@ -9,6 +9,7 @@ export function boolNetwork(): CspDev.DirectiveDescriptor {
       'alpha-api.boolscan.com',
       'test-api.boolscan.com',
       'https://dev-rpc-node-http.bool.network/',
+      '*.deepsafe.network',
       'https://beta-mainnet-api.deepsafe.network',
       'https://betamainnet-rpc-node-http.deepsafe.network',
     ],
