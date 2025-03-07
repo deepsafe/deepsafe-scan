@@ -248,7 +248,7 @@ export default function useNavItems(): ReturnType {
       config.app.hideNevs.includes("/dhcs") ?
         undefined :
         {
-          text: "DHCs",
+          text: "CRVAs",
           nextRoute: { pathname: "/dhcs" as const },
           icon: "bool/provider",
           isActive: pathname.startsWith("/dhcs"),

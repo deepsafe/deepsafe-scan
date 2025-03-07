@@ -37,7 +37,7 @@ const DHCStatistics = () => {
     return [
       {
         id: "totalDevices",
-        label: "Total DHC",
+        label: "Total CRVA",
         icon: "bool/device",
         value: statsData("totalDevices"),
       },

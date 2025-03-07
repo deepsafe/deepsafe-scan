@@ -45,7 +45,7 @@ const ProvidersStats = () => {
     return [
       {
         id: "totalDevice",
-        label: "Total DHC",
+        label: "Total CRVA",
         icon: "bool/device",
         value: statsData("totalDevice"),
       },
