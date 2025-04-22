@@ -30,8 +30,8 @@ declare module "nextjs-routes" {
     | StaticRoute<"/blocks">
     | StaticRoute<"/contract-verification">
     | StaticRoute<"/csv-export">
-    | DynamicRoute<"/dhcs/[id]", { "id": string }>
-    | StaticRoute<"/dhcs">
+    | DynamicRoute<"/crvas/[id]", { "id": string }>
+    | StaticRoute<"/crvas">
     | StaticRoute<"/graphiql">
     | StaticRoute<"/">
     | StaticRoute<"/l2-deposits">

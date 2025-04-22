@@ -38,7 +38,7 @@ const ProviderTableItem = ({
           content = (
             <EntityBase.Link
               href={ route({
-                pathname: "/dhcs/[id]",
+                pathname: "/crvas/[id]",
                 query: { id: provider.providerID },
               }) }
             >

@@ -54,9 +54,9 @@ const OG_TYPE_DICT: Record<Route['pathname'], OGPageType> = {
   '/auth/auth0': 'Regular page',
   '/auth/unverified-email': 'Regular page',
   '/validators': 'Homepage',
-  '/dhcs': 'Homepage',
+  '/crvas': 'Homepage',
   '/validators/[hash]': 'Homepage',
-  '/dhcs/[id]': 'Homepage',
+  '/crvas/[id]': 'Homepage',
 };
 
 export default function getPageOgType(pathname: Route['pathname']) {

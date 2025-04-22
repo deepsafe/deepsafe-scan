@@ -57,8 +57,8 @@ const TEMPLATE_MAP: Record<Route['pathname'], string> = {
   '/auth/auth0': DEFAULT_TEMPLATE,
   '/auth/unverified-email': DEFAULT_TEMPLATE,
   '/validators': DEFAULT_TEMPLATE,
-  '/dhcs': DEFAULT_TEMPLATE,
-  '/dhcs/[id]': DEFAULT_TEMPLATE,
+  '/crvas': DEFAULT_TEMPLATE,
+  '/crvas/[id]': DEFAULT_TEMPLATE,
   '/validators/[hash]': DEFAULT_TEMPLATE,
 };
 

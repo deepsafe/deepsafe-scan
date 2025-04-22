@@ -28,7 +28,7 @@ const DHCDeviceListItem = ({
             <Flex>
               <EntityBase.Link
                 href={ route({
-                  pathname: "/dhcs/[id]",
+                  pathname: "/crvas/[id]",
                   query: { id: data.deviceId },
                 }) }
               >

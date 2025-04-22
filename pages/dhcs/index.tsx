@@ -9,7 +9,7 @@ const DHCs = dynamic(() => import("ui/pages/DHCs"), { ssr: false });
 
 const Page: NextPage<Props> = (props: Props) => {
   return (
-    <PageNextJs pathname="/dhcs" query={ props }>
+    <PageNextJs pathname="/crvas" query={ props }>
       <DHCs/>
     </PageNextJs>
   );

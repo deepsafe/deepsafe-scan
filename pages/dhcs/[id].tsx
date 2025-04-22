@@ -11,7 +11,7 @@ const DHC = dynamic(() => import("ui/pages/DHC"), {
 
 const Page: NextPage<Props> = (props: Props) => {
   return (
-    <PageNextJs pathname="/dhcs/[id]" query={ props }>
+    <PageNextJs pathname="/crvas/[id]" query={ props }>
       <DHC/>
     </PageNextJs>
   );
