@@ -50,9 +50,9 @@ export default function useFetch() {
         ...params,
         body,
         headers: {
-          ...(withBody && !isFormData
-            ? { 'Content-type': 'application/json' }
-            : undefined),
+          ...(withBody && !isFormData ?
+            { 'Content-type': 'application/json' } :
+            undefined),
           ...params?.headers,
         },
       };

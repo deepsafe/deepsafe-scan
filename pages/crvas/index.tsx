@@ -5,7 +5,7 @@ import React from "react";
 import type { Props } from "nextjs/getServerSideProps";
 import PageNextJs from "nextjs/PageNextJs";
 
-const DHCs = dynamic(() => import("ui/pages/DHCs"), { ssr: false });
+const DHCs = dynamic(() => import("ui/pages/CRVAs"), { ssr: false });
 
 const Page: NextPage<Props> = (props: Props) => {
   return (

@@ -5,7 +5,7 @@ import React from "react";
 import type { Props } from "nextjs/getServerSideProps";
 import PageNextJs from "nextjs/PageNextJs";
 
-const DHC = dynamic(() => import("ui/pages/DHC"), {
+const DHC = dynamic(() => import("ui/pages/CRVA"), {
   ssr: false,
 });
 

@@ -47,10 +47,10 @@ const moduleExports = {
   experimental: {
     instrumentationHook: true,
   },
-  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '', 
-  trailingSlash: true,  // ✅ 避免 Next.js 重定向
+  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '',
+  trailingSlash: true, // ✅ 避免 Next.js 重定向
   eslint: {
-    ignoreDuringBuilds: true,  // 直接跳过 ESLint 校验
+    ignoreDuringBuilds: true, // 直接跳过 ESLint 校验
   },
 };
 console.log("校验资产路径.");

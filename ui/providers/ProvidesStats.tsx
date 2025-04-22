@@ -15,7 +15,7 @@ const ProvidersStats = () => {
 
   const statsList = useMemo<
   Array<{
-    id: keyof ProviderInfo | "dhc" | "stake" | "unpaidBalance";
+    id: keyof ProviderInfo | "crva" | "stake" | "unpaidBalance";
     label: string;
     value: string;
     icon: IconName;

@@ -29,9 +29,9 @@ declare module "nextjs-routes" {
     | DynamicRoute<"/block/[height_or_hash]", { "height_or_hash": string }>
     | StaticRoute<"/blocks">
     | StaticRoute<"/contract-verification">
-    | StaticRoute<"/csv-export">
     | DynamicRoute<"/crvas/[id]", { "id": string }>
     | StaticRoute<"/crvas">
+    | StaticRoute<"/csv-export">
     | StaticRoute<"/graphiql">
     | StaticRoute<"/">
     | StaticRoute<"/l2-deposits">

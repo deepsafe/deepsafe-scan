@@ -4,8 +4,8 @@ import React from "react";
 import useApiQuery from "lib/api/useApiQuery";
 import { useAppContext } from "lib/contexts/app";
 import { formatAmount } from "lib/utils/helpers";
-import DHCDetails from "ui/dhc/DHCDetails";
-import DHCStatistic from "ui/dhc/DHCStatistic";
+import DHCDetails from "ui/crva/DHCDetails";
+import DHCStatistic from "ui/crva/DHCStatistic";
 import PageTitle from "ui/shared/Page/PageTitle";
 
 const HDCContext: React.FC = ({}) => {
@@ -21,7 +21,7 @@ const HDCContext: React.FC = ({}) => {
 
   const backLink = React.useMemo(() => {
     const hasGoBackLink =
-      appProps.referrer && appProps.referrer.includes("/dhcs");
+      appProps.referrer && appProps.referrer.includes("/crvas");
 
     if (!hasGoBackLink) {
       return;
