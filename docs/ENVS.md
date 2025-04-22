@@ -131,6 +131,7 @@ Please be aware that all environment variables prefixed with `NEXT_PUBLIC_` will
 | NEXT_PUBLIC_NAVIGATION_HIDDEN_LINKS | `Array<LinkId>`                      | List of external links hidden in the navigation. Supported ids are `eth_rpc_api`, `rpc_api`                                                                                                                                                  | -              | -             | `['eth_rpc_api']`                                        |
 
 |NEXT_PUBLIC_HIDE_ENVS| `Array<strubg>` |hide menus| - | - | `['/validators', '/crvas']` |
+| NEXT_PUBLIC_BOOL_SCAN_API_BASE | `string`| Service to query dhc and validators data | - | `deepsafe-beta-mainnet` | `deepsafe-beta-mainnet` |
 
 #### Featured network configuration properties
 
