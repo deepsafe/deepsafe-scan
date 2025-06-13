@@ -261,14 +261,14 @@ export default function useNavItems(): ReturnType {
             text: 'Dashboard',
             url: `https://dashboard.boolscan.com?network=${ networkName() }`,
           },
-          {
-            text: 'Bridge Explorer',
-            url: `https://bridge.boolscan.com?network=${ networkName() }`,
-          },
-          {
-            text: 'Oracle Explorer',
-            url: `https://oracle.boolscan.com?network=${ networkName() }`,
-          },
+          // {
+          //   text: 'Bridge Explorer',
+          //   url: `https://bridge.boolscan.com?network=${ networkName() }`,
+          // },
+          // {
+          //   text: 'Oracle Explorer',
+          //   url: `https://oracle.boolscan.com?network=${ networkName() }`,
+          // },
         ] as Array<NavItemExternal>,
       },
       {
