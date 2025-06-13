@@ -112,7 +112,7 @@ const Footer = () => {
           <HStack spacing={ 1 }>
             <Image
               src="/favicon/favicon-footer.png"
-              alt="Bool Scan"
+              alt="DeepSafe Scan"
               unoptimized
               width={ 30 }
               height={ 30 }
@@ -120,13 +120,12 @@ const Footer = () => {
             <Text fontSize="md">
               Powered by{ ' ' }
               <Link fontSize="md" href="https://bool.network">
-                Bool Network
+                  DeepSafe
               </Link>
             </Text>
           </HStack>
           <Text mt={ 3 } fontSize="xs">
-            Bool Scan is a Block Explorer and Analytics Platform for the Bool
-            Network.
+              DeepSafe Scan is a Block Explorer and Analytics Platform for the DeepSafe Network.
           </Text>
           { /* <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { apiVersionUrl && (
