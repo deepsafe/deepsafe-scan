@@ -43,13 +43,13 @@ const Footer = () => {
       icon: 'social/git' as const,
       iconSize: '18px',
       text: 'GitHub',
-      url: 'https://github.com/boolnetwork/boolscan',
+      url: 'https://github.com/deepsafe/deepsafe-scan',
     },
     {
       icon: 'social/tweet' as const,
       iconSize: '18px',
       text: 'Twitter',
-      url: 'https://www.twitter.com/bool_official',
+      url: 'https://x.com/DeepSafe_AI',
     },
   ];
 
