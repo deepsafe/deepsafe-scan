@@ -33,6 +33,8 @@ function networkName() {
     return 'alpha_testnet';
   } else if (config.chain.isTestnet) {
     return 'testnet';
+  }  else if (config.chain.isBetaMainNet) {
+    return 'beta_mainnet';
   } else {
     return 'mainnet';
   }
@@ -261,10 +263,10 @@ export default function useNavItems(): ReturnType {
             text: 'Dashboard',
             url: `https://dashboard.boolscan.com?network=${ networkName() }`,
           },
-          // {
-          //   text: 'Bridge Explorer',
-          //   url: `https://bridge.boolscan.com?network=${ networkName() }`,
-          // },
+          {
+            text: 'Bridge Explorer',
+            url: `https://https://bridge.deepsafe.network?network=${ networkName() }`,
+          },
           // {
           //   text: 'Oracle Explorer',
           //   url: `https://oracle.boolscan.com?network=${ networkName() }`,

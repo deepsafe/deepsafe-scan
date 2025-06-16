@@ -119,7 +119,7 @@ const Footer = () => {
             />
             <Text fontSize="md">
               Powered by{ ' ' }
-              <Link fontSize="md" href="https://bool.network">
+              <Link fontSize="md" href="https://deepsafe.network">
                   DeepSafe
               </Link>
             </Text>
