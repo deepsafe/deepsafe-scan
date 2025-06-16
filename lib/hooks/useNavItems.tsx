@@ -265,7 +265,7 @@ export default function useNavItems(): ReturnType {
           },
           {
             text: 'Bridge Explorer',
-            url: `https://https://bridge.deepsafe.network?network=${ networkName() }`,
+            url: `https://bridge.deepsafe.network?network=${ networkName() }`,
           },
           {
             text: 'Validators',
