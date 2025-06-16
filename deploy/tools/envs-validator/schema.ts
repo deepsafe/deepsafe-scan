@@ -393,7 +393,7 @@ const schema = yup
       .string<NetworkVerificationType>()
       .oneOf([ 'validation', 'mining' ]),
     NEXT_PUBLIC_IS_TESTNET: yup.boolean(),
-    NEXT_PUBLIC_IS_DEVNET: yup.boolean(),
+    NEXT_PUBLIC_IS_DEVNET: yup.boolean(), NEXT_PUBLIC_IS_BETA_MAINNET:yup.boolean(),
     NEXT_PUBLIC_NETWORK_CURRENCY_IMAGE_URL: yup.string(),
     // 3. API configuration
     NEXT_PUBLIC_API_PROTOCOL: yup.string().oneOf(protocols),
