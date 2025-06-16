@@ -267,6 +267,10 @@ export default function useNavItems(): ReturnType {
             text: 'Bridge Explorer',
             url: `https://https://bridge.deepsafe.network?network=${ networkName() }`,
           },
+          {
+            text: 'Validators',
+            url: `https://validators.deepsafe.network?network=${ networkName() }`,
+          },
           // {
           //   text: 'Oracle Explorer',
           //   url: `https://oracle.boolscan.com?network=${ networkName() }`,
