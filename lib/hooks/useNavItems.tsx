@@ -260,15 +260,15 @@ export default function useNavItems(): ReturnType {
         icon: 'ecosystem',
         subItems: [
           {
-            text: 'Dashboard',
-            url: `https://dashboard.boolscan.com?network=${ networkName() }`,
+            text: 'CRVA Explorer',
+            url: `https://crva.deepsafe.network/${ networkName() }`,
           },
           {
             text: 'Bridge Explorer',
             url: `https://bridge.deepsafe.network?network=${ networkName() }`,
           },
           {
-            text: 'Validators',
+            text: 'Validators Explorer',
             url: `https://validators.deepsafe.network?network=${ networkName() }`,
           },
           // {
