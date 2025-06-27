@@ -4,7 +4,7 @@ import { getEnvValue } from '../utils';
 
 const title = 'User operations';
 
-const config: Feature<{ isEnabled: true }> = (() => {
+const config: Feature<{ isEnabled: boolean }> = (() => {
   if (getEnvValue('NEXT_PUBLIC_HAS_USER_OPS') === 'true') {
     return Object.freeze({
       title,

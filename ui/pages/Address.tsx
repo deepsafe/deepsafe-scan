@@ -67,7 +67,7 @@ const AddressPageContent = () => {
   const userOpsAccountQuery = useApiQuery('user_ops_account', {
     pathParams: { hash },
     queryOptions: {
-      enabled: Boolean(hash),
+      enabled:config.features.userOps.isEnabled && Boolean(hash),
       placeholderData: USER_OPS_ACCOUNT,
     },
   });
