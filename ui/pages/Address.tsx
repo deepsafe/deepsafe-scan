@@ -64,13 +64,13 @@ const AddressPageContent = () => {
     },
   });
 
-  const userOpsAccountQuery = useApiQuery('user_ops_account', {
-    pathParams: { hash },
-    queryOptions: {
-      enabled:config.features.userOps.isEnabled && Boolean(hash),
-      placeholderData: USER_OPS_ACCOUNT,
-    },
-  });
+  // const userOpsAccountQuery = useApiQuery('user_ops_account', {
+  //   pathParams: { hash },
+  //   queryOptions: {
+  //     enabled:config.features.userOps.isEnabled && Boolean(hash),
+  //     placeholderData: USER_OPS_ACCOUNT,
+  //   },
+  // });
 
   const isSafeAddress = useIsSafeAddress(!addressQuery.isPlaceholderData && addressQuery.data?.is_contract ? hash : undefined);
 
@@ -84,14 +84,14 @@ const AddressPageContent = () => {
         count: addressTabsCountersQuery.data?.transactions_count,
         component: <AddressTxs scrollRef={ tabsScrollRef }/>,
       },
-      config.features.userOps.isEnabled && Boolean(userOpsAccountQuery.data?.total_ops) ?
-        {
-          id: 'user_ops',
-          title: 'User operations',
-          count: userOpsAccountQuery.data?.total_ops,
-          component: <AddressUserOps/>,
-        } :
-        undefined,
+      // config.features.userOps.isEnabled && Boolean(userOpsAccountQuery.data?.total_ops) ?
+      //   {
+      //     id: 'user_ops',
+      //     title: 'User operations',
+      //     count: userOpsAccountQuery.data?.total_ops,
+      //     component: <AddressUserOps/>,
+      //   } :
+      //   undefined,
       config.features.beaconChain.isEnabled && addressTabsCountersQuery.data?.withdrawals_count ?
         {
           id: 'withdrawals',
@@ -158,7 +158,7 @@ const AddressPageContent = () => {
         subTabs: contractTabs.map(tab => tab.id),
       } : undefined,
     ].filter(Boolean);
-  }, [ addressQuery.data, contractTabs, addressTabsCountersQuery.data, userOpsAccountQuery.data ]);
+  }, [ addressQuery.data, contractTabs, addressTabsCountersQuery.data/*, userOpsAccountQuery.data */]);
 
   const tags = (
     <EntityTags
@@ -169,7 +169,7 @@ const AddressPageContent = () => {
         addressQuery.data?.implementation_address ? { label: 'proxy', display_name: 'Proxy' } : undefined,
         addressQuery.data?.token ? { label: 'token', display_name: 'Token' } : undefined,
         isSafeAddress ? { label: 'safe', display_name: 'Multisig: Safe' } : undefined,
-        userOpsAccountQuery.data ? { label: 'user_ops_acc', display_name: 'Smart contract wallet' } : undefined,
+        // userOpsAccountQuery.data ? { label: 'user_ops_acc', display_name: 'Smart contract wallet' } : undefined,
       ] }
     />
   );
@@ -241,7 +241,7 @@ const AddressPageContent = () => {
       <AddressDetails addressQuery={ addressQuery } scrollRef={ tabsScrollRef }/>
       { /* should stay before tabs to scroll up with pagination */ }
       <Box ref={ tabsScrollRef }></Box>
-      { (addressQuery.isPlaceholderData || addressTabsCountersQuery.isPlaceholderData || userOpsAccountQuery.isPlaceholderData) ?
+      { (addressQuery.isPlaceholderData || addressTabsCountersQuery.isPlaceholderData /*|| userOpsAccountQuery.isPlaceholderData*/ ) ?
         <TabsSkeleton tabs={ tabs }/> :
         content
       }
