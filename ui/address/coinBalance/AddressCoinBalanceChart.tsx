@@ -14,7 +14,7 @@ const AddressCoinBalanceChart = ({ addressHash }: Props) => {
   const { data, isPending, isError } = useApiQuery('address_coin_balance_chart', {
     pathParams: { hash: addressHash },
   });
-
+  // @ts-expect-error
   const items = React.useMemo(() => data?.items?.map(({ date, value }) => ({
     date: new Date(date),
     value: BigNumber(value).div(10 ** config.chain.currency.decimals).toNumber(),
