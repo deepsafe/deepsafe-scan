@@ -45,7 +45,7 @@ const TxnBatchesListItem = ({ item, isLoading }: Props) => {
           isLoading={ isLoading }
         >
           <Skeleton isLoaded={ !isLoading } minW="40px">
-            { item.tx_count }
+            { item.transaction_count }
           </Skeleton>
         </LinkInternal>
       </ListItemMobileGrid.Value>

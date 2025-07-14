@@ -61,7 +61,7 @@ const LatestZkevmL2BatchItem = ({ batch, isLoading }: Props) => {
             isLoading={ isLoading }
           >
             <Skeleton isLoaded={ !isLoading }>
-              { batch.tx_count }
+              { batch.transaction_count }
             </Skeleton>
           </LinkInternal>
         </Flex>

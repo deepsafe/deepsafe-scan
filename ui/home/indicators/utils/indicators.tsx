@@ -24,7 +24,7 @@ const dailyTxsIndicator: TChainIndicator<'homepage_chart_txs'> = {
     resourceName: 'homepage_chart_txs',
     dataFn: (response) => ([ {
       items: response.chart_data
-        .map((item) => ({ date: new Date(item.date), value: item.tx_count }))
+        .map((item) => ({ date: new Date(item.date), value: item.transaction_count }))
         .sort(sortByDateDesc),
       name: 'Tx/day',
       valueFormatter: (x: number) => x.toLocaleString(undefined, { maximumFractionDigits: 2, notation: 'compact' }),

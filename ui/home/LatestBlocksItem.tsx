@@ -57,7 +57,7 @@ const LatestBlocksItem = ({ block, isLoading }: Props) => {
       </Flex>
       <Grid gridGap={ 2 } templateColumns="auto minmax(0, 1fr)" fontSize="sm">
         <Skeleton isLoaded={ !isLoading }>Txn</Skeleton>
-        <Skeleton isLoaded={ !isLoading } color="text_secondary"><span>{ block.tx_count }</span></Skeleton>
+        <Skeleton isLoaded={ !isLoading } color="text_secondary"><span>{ block.transaction_count }</span></Skeleton>
 
         { !config.features.optimisticRollup.isEnabled && !config.UI.views.block.hiddenFields?.total_reward && (
           <>

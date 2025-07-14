@@ -8,7 +8,7 @@ export const txnBatchesData = {
       ],
       l1_timestamp: '2023-02-24T10:16:12.000000Z',
       l2_block_number: 5902836,
-      tx_count: 0,
+      transaction_count: 0,
     },
     {
       epoch_number: 8547348,
@@ -17,7 +17,7 @@ export const txnBatchesData = {
       ],
       l1_timestamp: '2023-02-24T10:16:00.000000Z',
       l2_block_number: 5902835,
-      tx_count: 0,
+      transaction_count: 0,
     },
     {
       epoch_number: 8547348,
@@ -26,7 +26,7 @@ export const txnBatchesData = {
       ],
       l1_timestamp: '2023-02-24T10:16:00.000000Z',
       l2_block_number: 5902834,
-      tx_count: 0,
+      transaction_count: 0,
     },
   ],
   next_page_params: {

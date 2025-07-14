@@ -8,7 +8,7 @@ export const ZKEVM_L2_TXN_BATCHES_ITEM: ZkEvmL2TxnBatchesItem = {
   verify_tx_hash: TX_HASH,
   sequence_tx_hash: TX_HASH,
   number: 5218590,
-  tx_count: 9,
+  transaction_count: 9,
 };
 
 export const ZKEVM_L2_TXN_BATCH: ZkEvmL2TxnBatch = {

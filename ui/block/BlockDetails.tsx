@@ -173,7 +173,7 @@ const BlockDetails = ({ query }: Props) => {
       >
         <Skeleton isLoaded={ !isPlaceholderData }>
           <LinkInternal href={ route({ pathname: '/block/[height_or_hash]', query: { height_or_hash: heightOrHash, tab: 'txs' } }) }>
-            { data.tx_count } transaction{ data.tx_count === 1 ? '' : 's' }
+            { data.transaction_count } transaction{ data.transaction_count === 1 ? '' : 's' }
           </LinkInternal>
         </Skeleton>
       </DetailsInfoItem>
