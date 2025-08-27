@@ -73,8 +73,14 @@ const AddressPageContent = () => {
   // });
 
   const isSafeAddress = useIsSafeAddress(!addressQuery.isPlaceholderData && addressQuery.data?.is_contract ? hash : undefined);
+  const addressContractQuery = useApiQuery('contract', {
+    pathParams: { hash },
+    queryOptions: {
+      enabled: Boolean(hash) && addressQuery.data?.is_contract,
+    },
+  });
 
-  const contractTabs = useContractTabs(addressQuery.data);
+  const contractTabs = useContractTabs(addressQuery.data, addressContractQuery.data);
 
   const tabs: Array<RoutedTab> = React.useMemo(() => {
     return [
