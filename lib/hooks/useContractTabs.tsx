@@ -7,7 +7,7 @@ import ContractCode from 'ui/address/contract/ContractCode';
 import ContractRead from 'ui/address/contract/ContractRead';
 import ContractWrite from 'ui/address/contract/ContractWrite';
 
-export default function useContractTabs(data: Address | undefined, contract: SmartContract | undefined) {
+export default function useContractTabs(data: Address | undefined, contract?: SmartContract) {
   return React.useMemo(() => {
     return [
       { id: 'contact_code', title: 'Code', component: <ContractCode addressHash={ data?.hash }/> },
