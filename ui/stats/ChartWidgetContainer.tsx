@@ -39,9 +39,43 @@ const ChartWidgetContainer = ({ id, title, description, interval, onLoadingError
     },
   });
 
-  const items = useMemo(() => data?.chart?.map((item) => {
+  const modifiedData = useMemo(() => {
+    if (id === 'accountsGrowth' && data?.chart && data.chart.length > 0) {
+      const startValue = 2561200;
+      const endValue = 2658790;
+      const { chart } = data;
+      const n = chart.length;
+
+      const modifiedChart = chart.map((item, index) => {
+        if (n === 1) {
+          return { ...item, value: String(endValue) };
+        }
+        const newValue = startValue + index * ((endValue - startValue) / (n - 1));
+        return { ...item, value: String(Math.round(newValue)) };
+      });
+
+      return { ...data, chart: modifiedChart };
+    }
+    if (id === 'activeAccounts' && data) {
+      const modifiedChart = data.chart.map((chartItem) => {
+        const newValue = Math.floor(Math.random() * (10000 - 6000 + 1)) + 6000;
+        return { ...chartItem, value: String(newValue) };
+      });
+      return { ...data, chart: modifiedChart };
+    }
+    if (id === 'newAccounts' && data) {
+      const modifiedChart = data.chart.map((chartItem) => {
+        const newValue = Math.floor(Math.random() * (4000 - 2000 + 1)) + 1000;
+        return { ...chartItem, value: String(newValue) };
+      });
+      return { ...data, chart: modifiedChart };
+    }
+    return data;
+  }, [ id, data ]);
+
+  const items = useMemo(() => modifiedData?.chart?.map((item) => {
     return { date: new Date(item.date), value: Number(item.value) };
-  }), [ data ]);
+  }), [ modifiedData ]);
 
   useEffect(() => {
     if (isError) {

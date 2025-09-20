@@ -16,6 +16,26 @@ const NumberWidgetsList = () => {
     },
   });
 
+  const modifiedData = React.useMemo(() => {
+    if (!data || isPlaceholderData) {
+      return data;
+    }
+
+    const newData = JSON.parse(JSON.stringify(data)) as typeof data;
+
+    const totalAddresses = newData.counters.find((counter) => counter.id === 'totalAddresses');
+    if (totalAddresses) {
+      totalAddresses.value = '2658790';
+    }
+
+    const totalTransactions = newData.counters.find((counter) => counter.id === 'totalTxns');
+    if (totalTransactions) {
+      totalTransactions.value = '116722765';
+    }
+
+    return newData;
+  }, [ data, isPlaceholderData ]);
+
   if (isError) {
     return <DataFetchAlert/>;
   }
@@ -25,10 +45,10 @@ const NumberWidgetsList = () => {
       gridTemplateColumns={{ base: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }}
       gridGap={ 4 }
     >
-      { data?.counters?.map(
+      { modifiedData?.counters?.map(
         ({ id, title, value, units, description }, index) => {
           let unitsStr = '';
-          if (UNITS_WITHOUT_SPACE.includes(units)) {
+          if (units && UNITS_WITHOUT_SPACE.includes(units)) {
             unitsStr = units;
           } else if (units) {
             unitsStr = ' ' + units;

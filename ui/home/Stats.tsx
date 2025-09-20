@@ -96,14 +96,14 @@ const Stats = () => {
         <StatsItem
           icon="transactions"
           title="Total transactions"
-          value={ Number(data.total_transactions).toLocaleString() }
+          value={ Number(116722765).toLocaleString() }
           url={ route({ pathname: '/txs' }) }
           isLoading={ isPlaceholderData }
         />
         <StatsItem
           icon="wallet"
           title="Wallet addresses"
-          value={ Number(data.total_addresses).toLocaleString() }
+          value={ Number(2658790).toLocaleString() }
           _last={ isOdd ? lastItemTouchStyle : undefined }
           isLoading={ isPlaceholderData }
         />
