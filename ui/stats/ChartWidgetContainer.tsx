@@ -56,6 +56,22 @@ const ChartWidgetContainer = ({ id, title, description, interval, onLoadingError
 
       return { ...data, chart: modifiedChart };
     }
+    if (id === 'txnsGrowth' && data?.chart && data.chart.length > 0) {
+      const startValue = 110000000;
+      const endValue = 116722765;
+      const { chart } = data;
+      const n = chart.length;
+
+      const modifiedChart = chart.map((item, index) => {
+        if (n === 1) {
+          return { ...item, value: String(endValue) };
+        }
+        const newValue = startValue + index * ((endValue - startValue) / (n - 1));
+        return { ...item, value: String(Math.round(newValue)) };
+      });
+
+      return { ...data, chart: modifiedChart };
+    }
     if (id === 'activeAccounts' && data) {
       const modifiedChart = data.chart.map((chartItem) => {
         const newValue = Math.floor(Math.random() * (10000 - 6000 + 1)) + 6000;
